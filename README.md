@@ -14,7 +14,6 @@ run the following commands
 ```sh
 npm -g i @angular/cli
 npm i
-npm serve
 ```
 
 ## Development server
