@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <h2>Posts</h2>
+    <div class="col-lg-6 col-md-8 col-sm-12 d-flex">
+      <div class="searchbox-container">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">
+            <i class="bi bi-search"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Search" aria-label="Search" [ngModel]="search"
+            (ngModelChange)="searchPost($event)" aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="sortby-container">
+        <select class="form-select" aria-label="Default select example" (change)="sortPost($event.target.value)"
+          [ngModel]="sortValue">
+          <option disabled selected>Sort by</option>
+          <option value="id">ID</option>
+          <option value="title">Title</option>
+          <option value="userId">User</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">User</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of visiblePost" (click)="selectPost(post.id)">
+            <th scope="row">{{post.id}}</th>
+            <td> <a class="nav-link"> User {{post.userId}}</a></td>
+            <td><a>{{post.title}}</a></td>
+            <td>{{post.body}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item" [ngClass]="{'disabled': currentPage === 1}"><a class="page-link"
+            (click)="pageChanged(currentPage-1)">Previous</a></li>
+
+        <li class="page-item " [ngClass]="{'active': currentPage === firstPage}"><a class="page-link"
+            (click)="pageChanged(firstPage)">{{firstPage}}</a></li>
+
+        <li class="page-item" [ngClass]="{'active': currentPage === firstPage+1}"><a class="page-link"
+            (click)="pageChanged(firstPage+1)">{{firstPage+1}}</a></li>
+
+        <li class="page-item" [ngClass]="{'active': currentPage === firstPage+2 }"><a class="page-link"
+            (click)="pageChanged(firstPage+2)">{{firstPage+2}}</a></li>
+
+        <li class="page-item" [ngClass]="{'disabled': (filteredPost?.length/10) === currentPage}"><a class="page-link"
+            (click)="pageChanged(currentPage+1)">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

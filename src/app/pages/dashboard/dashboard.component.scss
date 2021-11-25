@@ -1,0 +1,44 @@
+
+
+
+.custom-card {
+  border: 0;
+    margin-bottom: 30px;
+    border-radius: 0.475rem;
+    color: #333333;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 0 20px 0 rgb(76 87 125 / 2%);
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    font-size: 0.875rem;
+}
+.custom-card-text {
+  color: #333333;
+}
+
+.card-photos {
+  margin: 5px;
+  width: 75px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-body-custom {
+  justify-content: start;
+    flex-wrap: wrap;
+    display: flex;
+    height: 60vh;
+    overflow: scroll;
+}
+.img-thumbnail {
+  width: 100px;
+}
+.latest-post-container {
+  height: 60vh;
+    overflow: scroll;
+}

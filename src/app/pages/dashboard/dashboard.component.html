@@ -1,0 +1,92 @@
+<div class="main-content">
+  <div class="container-fluid" *ngIf="myApp">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card custom-card card-stats">
+          <div class="card-header white-bg card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="bi bi-file-post"></i>
+            </div>
+            <!-- <p class="card-category">Text Note</p> -->
+            <h3 class="card-title">Posts
+              <small>{{myApp.posts.length}}</small>
+            </h3>
+          </div>
+          <div class="card-footer white-bg">
+            <div class="stats">
+              <i class="material-icons "></i>
+              <a href="javascript:void(0)"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card custom-card card-stats">
+          <div class="card-header white-bg card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="bi bi-journal-album"></i>
+            </div>
+            <!-- <p class="card-category"></p> -->
+            <h3 class="card-title">Albums
+              <small>{{myApp.albums.length}}</small>
+            </h3>
+          </div>
+          <div class="card-footer white-bg">
+            <div class="stats">
+              <i class="material-icons"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card custom-card card-stats">
+          <div class="card-header white-bg card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="bi bi-images"></i>
+            </div>
+            <!-- <p class="card-category"></p> -->
+            <h3 class="card-title">Photos
+              <small>{{myApp.photos.length}}</small>
+            </h3>
+          </div>
+          <div class="card-footer white-bg">
+            <div class="stats">
+              <i class="material-icons"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card custom-card custom-card border-primary mb-3 max-width-100">
+          <div class="card-header">Latest Post</div>
+          <div class="latest-post-container">
+            <ng-container *ngFor="let post of myApp.posts">
+              <div class="card-body text-primary">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text custom-card-text">{{post.body}}</p>
+              </div>
+            </ng-container>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card custom-card border-primary mb-3 max-width-100">
+          <div class="card-header">Recent Photos</div>
+          <div class="card-body text-primary card-body-custom">
+            <div class="card-photos" *ngFor="let photo of myApp.photos">
+              <div class="text-center">
+                <img class="img-thumbnail" [defaultImage]="defaultImage" [useSrcset]="true"
+                  [lazyLoad]="photo.thumbnailUrl">
+                <!-- <img src="{{photo.thumbnailUrl}}" class="rounded img-thumbnail" alt="..."> -->
+              </div>
+              <h5 class="card-title">{{photo.title}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

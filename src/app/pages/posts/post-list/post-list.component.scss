@@ -1,0 +1,10 @@
+.searchbox-container {
+  margin-right: 15px;
+}
+td {
+  max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
