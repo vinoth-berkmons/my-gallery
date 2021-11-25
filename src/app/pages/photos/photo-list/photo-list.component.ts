@@ -3,7 +3,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import FuzzySearch from 'fuzzy-search';
 import { Subscription } from 'rxjs';
 import { Photo, PhotoListResolved } from 'src/app/common/core/models';
-import { PhotosService } from 'src/app/common/core/services';
 
 @Component({
   selector: 'app-photo-list',
@@ -12,22 +11,21 @@ import { PhotosService } from 'src/app/common/core/services';
 })
 export class PhotoListComponent implements OnInit {
 
-  sub: Subscription = new Subscription();
-  search: string = '';
-  searcher: any;
-  defaultImage: string = './assets/images/spinner.gif';
+  private sub: Subscription = new Subscription();
+  public search: string = '';
+  private searcher: any;
+  public defaultImage: string = './assets/images/spinner.gif';
 
-  firstPage: number = 1;
-  currentPage: number = 1;
+  public firstPage: number = 1;
+  public currentPage: number = 1;
 
-  photos: Photo[];
-  visiblePhoto: Photo[] = [];
+  private photos: Photo[];
+  public visiblePhoto: Photo[] = [];
 
-  filteredPhotos: Photo[] = [];
-  sortValue: string = ''
+  public filteredPhotos: Photo[] = [];
+  public sortValue: string = ''
   constructor(
     private activatedRoute: ActivatedRoute,
-    private photosService: PhotosService,
     private router: Router) {
 
   }

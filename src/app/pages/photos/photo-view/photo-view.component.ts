@@ -9,7 +9,7 @@ import { Photo, PhotoResolved } from 'src/app/common/core/models';
 })
 export class PhotoViewComponent implements OnInit {
 
-  photo: Photo;
+  public photo: Photo;
 
 
   constructor(private activatedRoute: ActivatedRoute) { }

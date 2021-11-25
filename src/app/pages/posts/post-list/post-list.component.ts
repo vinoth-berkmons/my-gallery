@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import FuzzySearch from 'fuzzy-search';
+import { Subscription } from 'rxjs';
 import { Post } from 'src/app/common/core/models';
 import { PostsService } from 'src/app/common/core/services';
-
-import FuzzySearch from 'fuzzy-search';
 
 @Component({
   selector: 'app-post-list',
@@ -12,17 +11,17 @@ import FuzzySearch from 'fuzzy-search';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit, OnDestroy {
-  sub: Subscription = new Subscription();
-  posts: Post[];
-  visiblePost: Post[] = [];
+  private sub: Subscription = new Subscription();
+  private posts: Post[];
+  public visiblePost: Post[] = [];
 
-  firstPage: number = 1;
-  currentPage: number = 1;
-  search: string = '';
-  searcher: any;
-  filteredPost: Post[] = [];
+  public firstPage: number = 1;
+  public currentPage: number = 1;
+  public search: string = '';
+  private searcher: any;
+  public filteredPost: Post[] = [];
 
-  sortValue: string = ''
+  public sortValue: string = ''
 
 
 
@@ -63,9 +62,6 @@ export class PostListComponent implements OnInit, OnDestroy {
         return 0;
       }) : this.filteredPost;
       this.visiblePost = this.filteredPost ? this.filteredPost.slice((this.currentPage - 1) * 10, this.currentPage * 10) : [];
-
-      console.log(this.currentPage);
-      // this.loadingPosts.next()
 
     });
 

@@ -12,12 +12,12 @@ import FuzzySearch from 'fuzzy-search';
 })
 export class AlbumViewComponent implements OnInit, OnDestroy {
 
-  sub: Subscription = new Subscription();
-  search: string = '';
-  searcher: any;
-  defaultImage: string = './assets/images/spinner.gif';
-  album: Album;
-  filteredAlbum: Album[] = [];
+  private sub: Subscription = new Subscription();
+  public search: string = '';
+  private searcher: any;
+  public defaultImage: string = './assets/images/spinner.gif';
+  public album: Album;
+  public filteredAlbum: Album[] = [];
   constructor(private router: Router, private activatedRoute: ActivatedRoute,) {
     this.album = this.router.getCurrentNavigation()?.extras?.state?.data;
   }

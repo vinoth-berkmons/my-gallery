@@ -14,20 +14,20 @@ import { switchMap } from 'rxjs/operators';
 })
 export class AlbumListComponent implements OnInit, OnDestroy {
 
-  sub: Subscription = new Subscription();
-  albums: Album[];
-  visibleAlbum: Album[] = [];
+  private sub: Subscription = new Subscription();
+  private albums: Album[];
+  public visibleAlbum: Album[] = [];
 
-  firstPage: number = 1;
-  currentPage: number = 1;
-  search: string = '';
-  searcher: any;
-  filteredAlbum: Album[] = [];
+  public firstPage: number = 1;
+  public currentPage: number = 1;
+  public search: string = '';
+  private searcher: any;
+  public filteredAlbum: Album[] = [];
 
-  sortValue: string = ''
+  public sortValue: string = ''
 
-  getAlbums$ = this.albumService.getAlbums();
-  getPhotos$ = this.photosService.getPhotos();
+  readonly getAlbums$ = this.albumService.getAlbums();
+  readonly getPhotos$ = this.photosService.getPhotos();
 
   constructor(
     private albumService: AlbumsService,

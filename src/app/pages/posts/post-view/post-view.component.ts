@@ -9,7 +9,7 @@ import { PostResolved, Post as Post } from 'src/app/common/core/models';
 })
 export class PostViewComponent implements OnInit {
 
-  post: Post;
+  public post: Post;
 
 
   constructor(private activatedRoute: ActivatedRoute) { }
